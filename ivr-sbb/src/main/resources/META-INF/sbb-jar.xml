@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE sbb-jar PUBLIC "-//Sun Microsystems, Inc.//DTD JAIN SLEE SBB 1.1//EN"
+                         "http://java.sun.com/dtd/slee-sbb-jar_1_1.dtd">
+<sbb-jar>
+    <sbb>
+        <description/>
+        <sbb-name>Gryffin IVR Sbb</sbb-name>
+        <sbb-vendor>org.cloudzfy</sbb-vendor>
+        <sbb-version>1.0</sbb-version>
+        <library-ref>
+            <library-name>mrcp-library</library-name>
+            <library-vendor>org.cloudzfy</library-vendor>
+            <library-version>1.0</library-version>
+        </library-ref>
+        <library-ref>
+            <library-name>gryffin-as-library</library-name>
+            <library-vendor>org.cloudzfy</library-vendor>
+            <library-version>1.0</library-version>
+        </library-ref>
+        <sbb-classes>
+            <sbb-abstract-class>
+                <sbb-abstract-class-name>org.cloudzfy.gryffin.slee.IVRSbb</sbb-abstract-class-name>
+            </sbb-abstract-class>
+            <sbb-local-interface>
+                <sbb-local-interface-name>org.cloudzfy.gryffin.slee.IVRSbbLocalObject</sbb-local-interface-name>
+            </sbb-local-interface>
+        </sbb-classes>
+        <event event-direction="Receive" initial-event="True">
+            <event-name>CallAck</event-name>
+            <event-type-ref>
+                <event-type-name>javax.sip.Dialog.ACK</event-type-name>
+                <event-type-vendor>net.java.slee</event-type-vendor>
+                <event-type-version>1.2</event-type-version>
+            </event-type-ref>
+            <initial-event-select variable="ActivityContext"/>
+        </event>
+        <event event-direction="Receive" initial-event="False">
+            <event-name>SpeakComplete</event-name>
+            <event-type-ref>
+                <event-type-name>org.cloudzfy.mrcp.Request.SPEAK_COMPLETE</event-type-name>
+                <event-type-vendor>org.cloudzfy</event-type-vendor>
+                <event-type-version>1.0</event-type-version>
+            </event-type-ref>
+            <initial-event-selector-method-name/>
+        </event>
+        <event event-direction="Receive" initial-event="False">
+            <event-name>StartofInput</event-name>
+            <event-type-ref>
+                <event-type-name>org.cloudzfy.mrcp.Request.START_OF_INPUT</event-type-name>
+                <event-type-vendor>org.cloudzfy</event-type-vendor>
+                <event-type-version>1.0</event-type-version>
+            </event-type-ref>
+            <initial-event-selector-method-name/>
+        </event>
+        <event event-direction="Receive" initial-event="False">
+            <event-name>RecognitionComplete</event-name>
+            <event-type-ref>
+                <event-type-name>org.cloudzfy.mrcp.Request.RECOGNITION_COMPLETE</event-type-name>
+                <event-type-vendor>org.cloudzfy</event-type-vendor>
+                <event-type-version>1.0</event-type-version>
+            </event-type-ref>
+            <initial-event-selector-method-name/>
+        </event>
+        <event event-direction="Receive" initial-event="False">
+            <event-name>SpeechMarker</event-name>
+            <event-type-ref>
+                <event-type-name>org.cloudzfy.mrcp.Request.SPEECH_MARKER</event-type-name>
+                <event-type-vendor>org.cloudzfy</event-type-vendor>
+                <event-type-version>1.0</event-type-version>
+            </event-type-ref>
+        </event>
+        <event event-direction="Receive" initial-event="False">
+            <event-name>CallTerminated</event-name>
+            <event-type-ref>
+                <event-type-name>javax.sip.Dialog.BYE</event-type-name>
+                <event-type-vendor>net.java.slee</event-type-vendor>
+                <event-type-version>1.2</event-type-version>
+            </event-type-ref>
+        </event>
+        <resource-adaptor-type-binding>
+            <resource-adaptor-type-ref>
+                <resource-adaptor-type-name>MrcpResourceAdaptorType</resource-adaptor-type-name>
+                <resource-adaptor-type-vendor>org.cloudzfy</resource-adaptor-type-vendor>
+                <resource-adaptor-type-version>1.0</resource-adaptor-type-version>
+            </resource-adaptor-type-ref>
+            <activity-context-interface-factory-name>slee/resource/mrcp/1.0/acifactory</activity-context-interface-factory-name>
+            <resource-adaptor-entity-binding>
+                <resource-adaptor-object-name>slee/resource/mrcp/1.0/provider</resource-adaptor-object-name>
+                <resource-adaptor-entity-link>MrcpRA</resource-adaptor-entity-link>
+            </resource-adaptor-entity-binding>
+        </resource-adaptor-type-binding>
+        <resource-adaptor-type-binding>
+            <resource-adaptor-type-ref>
+                <resource-adaptor-type-name>JAIN SIP</resource-adaptor-type-name>
+                <resource-adaptor-type-vendor>javax.sip</resource-adaptor-type-vendor>
+                <resource-adaptor-type-version>1.2</resource-adaptor-type-version>
+            </resource-adaptor-type-ref>
+            <activity-context-interface-factory-name>slee/resource/jainsip/1.2/acifactory</activity-context-interface-factory-name>
+            <resource-adaptor-entity-binding>
+                <resource-adaptor-object-name>slee/resource/jainsip/1.2/provider</resource-adaptor-object-name>
+                <resource-adaptor-entity-link>SipRA</resource-adaptor-entity-link>
+            </resource-adaptor-entity-binding>
+        </resource-adaptor-type-binding>
+    </sbb>
+</sbb-jar>

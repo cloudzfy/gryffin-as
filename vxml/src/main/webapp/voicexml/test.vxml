@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<vxml version="2.1">
+   <form id="test">
+      <block>
+	  Welcome to the example.
+       </block>
+       <field name="yesno">
+           <nomatch>
+	     Please say yes or no.
+           </nomatch>
+           <noinput>
+	     Please say something.
+           </noinput>
+	   <prompt>
+	      Do you like this example?
+	    </prompt>
+	    <grammar src="http://192.168.1.100:8080/gryffin-as-vxml/voicexml/yesno.gram" type="application/x-jsgf"/>
+            <filled>
+               <prompt> <value expr="yesno"/> </prompt>
+		    
+               <if cond="yesno=='yes'">
+	          I am happy to hear that you like this example.
+               <else/>
+	          Sorry that you do not like this example.
+               </if>
+             </filled>
+          </field>
+     </form>
+</vxml>

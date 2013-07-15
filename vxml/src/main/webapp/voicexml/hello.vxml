@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<vxml version="2.1">
+<form id="sayHello">
+   <block>
+      <prompt>
+	 Hello World!
+      </prompt>
+      <goto next="#sayGoodbye"/>
+   </block>
+</form>
+<form id="sayGoodbye">
+    <block>
+        <prompt>
+           Goodbye World!
+        </prompt>
+     </block>
+  </form>
+</vxml>

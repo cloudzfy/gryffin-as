@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<vxml version="2.1">
+
+<form id="parrot">
+   <block>
+      You can start speaking any time.
+   </block>
+   <field name="main">
+      <nomatch>
+	  Your response was out of grammar.  Would you like to hear the weather, get sports news or hear a stock quote?  Say quit to exit. 
+      </nomatch>
+      <noinput>
+	  I could not hear you.  Would you like to hear the weather, get sports news or hear a stock quote?  Say quit to exit. 
+      </noinput>
+      <prompt> 
+	  Would you like to hear the weather, get sports news or hear a stock quote?  Say quit to exit. 
+      </prompt>
+      <grammar src="http://192.168.1.100:8080/gryffin-as-vxml/voicexml/parrot.gram" type="application/x-jsgf"/>
+      <filled>
+         <prompt> <value expr="main"/> </prompt>
+         <if cond="main=='quit'">
+	    <exit/>
+         <else/>
+	    <clear namelist="main"/>
+	    <reprompt/>
+         </if>
+      </filled>
+   </field>
+   <block>
+      Goodbye.
+   </block>
+</form>
+
+</vxml>
