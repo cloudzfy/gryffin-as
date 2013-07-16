@@ -1,7 +1,8 @@
-===========================================
+=================================================
 Readme for gryffin-as
 IVR Media Resource Controller in JAIN SLEE
-===========================================
+Copyright (C) 2013 Cloudzfy. All Rights Reserved.
+=================================================
 
 
 Overriew
