@@ -29,7 +29,3 @@ This project is designed by @cloudzfy as a graduation project in Beijing Univers
 
 ### Support & Contact
 If you have any trouble on this project, please submit it to our [Issue Tracker](http://github.com/cloudzfy/gryffin-as/issues), thank you.
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/cloudzfy/gryffin-as/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
